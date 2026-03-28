@@ -1,0 +1,46 @@
+{
+  "project": "The Draw",
+  "tagline": "1,290 words. 10 drawn at random. One piece of writing. Every week.",
+  "total_words": 1290,
+  "weeks_completed": 2,
+  "draws": [
+    {
+      "week": 1,
+      "date": "2026-03-28",
+      "words": [
+        "phantasmagoria",
+        "caustic",
+        "sinecure",
+        "gossamer",
+        "bellicosity",
+        "etiolate",
+        "surfeit",
+        "parochial",
+        "welter",
+        "rococo"
+      ],
+      "piece_title": "The Gilded Rot",
+      "piece_format": "essay",
+      "piece_body": "There is a surfeit of phantasmagoria in the way we talk about progress — a rococo ornamentation of language designed to obscure the caustic truth underneath. We live in a welter of competing narratives, each more parochial than the last, each dressed in gossamer rhetoric that etiolates under the slightest scrutiny.\n\nThe bellicosity of public discourse isn't new, of course. What's new is the sinecure it offers. You can build an entire career on outrage now — a comfortable, tenured position in the economy of anger, requiring nothing but volume and consistency. The words don't need to mean anything. They just need to land.\n\nI started this project because I wanted the words to mean something again. Ten words, drawn at random, forced into proximity with each other and with whatever I happen to be thinking about that week. It's a constraint, and constraints are where honesty lives. You can't bullshit your way through 'etiolate' — you either know what it means or you don't. You either find its place in the sentence or you fail publicly.\n\nThat's the point. The public failure. The willingness to reach for a word like 'phantasmagoria' and risk sounding like a pretentious ass, because the alternative is using the same 500 words everyone else uses and saying nothing at all."
+    },
+    {
+      "week": 2,
+      "date": "2026-04-04",
+      "words": [
+        "shibboleth",
+        "conflagration",
+        "dulcet",
+        "peripatetic",
+        "mordant",
+        "abnegate",
+        "insouciant",
+        "escarpment",
+        "lucre",
+        "vestige"
+      ],
+      "piece_title": "Walking Money",
+      "piece_format": "essay",
+      "piece_body": "The peripatetic life sounds dulcet in the brochure — all cobblestones and cafe tables and the insouciant tilt of a well-traveled hat. The reality is more mordant. You walk until your feet inform you, in no uncertain terms, that they have abnegated their contract with the rest of your body.\n\nI've been thinking about shibboleths this week. The word itself is a shibboleth — if you know it, you're in a certain club. If you don't, the door stays closed. Every field has them. Finance has 'alpha' and 'basis points.' Academia has 'praxis' and 'liminal.' The words aren't just vocabulary; they're border checkpoints. Proof of membership. The lucre isn't always money — sometimes it's access.\n\nThere's a conflagration happening in the way knowledge moves now. The old escarpments between expert and amateur are eroding. A kid on YouTube can explain derivatives better than my college professor did, and the only vestige of the old gatekeeping is the vocabulary itself — the shibboleths that still make people feel like outsiders.\n\nThat's partly why I collect words. Not to gatekeep. To dismantle the gate."
+    }
+  ]
+}
