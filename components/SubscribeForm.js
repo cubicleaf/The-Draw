@@ -14,8 +14,6 @@ import { useState } from 'react'
   You get this when you sign up at buttondown.email.
 */
 
-const BUTTONDOWN_USERNAME = 'YOUR_BUTTONDOWN_USERNAME'
-
 export default function SubscribeForm() {
   const [email, setEmail] = useState('')
   const [status, setStatus] = useState('idle') // idle | loading | success | error
@@ -25,13 +23,10 @@ export default function SubscribeForm() {
     setStatus('loading')
 
     try {
-      const res = await fetch(`https://api.buttondown.email/v1/subscribers`, {
+      const res = await fetch('/api/subscribe', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          email_address: email,
-          tags: ['the-draw'],
-        }),
+        body: JSON.stringify({ email }),
       })
 
       if (res.ok) {
