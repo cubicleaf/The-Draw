@@ -1,8 +1,8 @@
 ---
-attention: Dormant
+attention: Active
 state: Live
 form: Website
-updated: 2026-07-14
+updated: 2026-07-26
 live_url: https://the-draw-black.vercel.app
 ---
 
@@ -10,11 +10,22 @@ live_url: https://the-draw-black.vercel.app
 
 **What this file is.** A running record of where The Draw stands — decisions made, what's shipped, what's blocked. Reference [INTENT.md](INTENT.md) for what the project is. For vision, structure, and the word pool mechanics, see `../\_docs/THE-DRAW-VISION.md`.
 
-Last updated: 2026-07-14
+Last updated: 2026-07-26
 
 ---
 
 ## Decisions
+
+### 2026-07-26 — First piece written and published: Week 1
+
+What:
+- Tim wrote the first piece using all 10 Week 1 words (jettison, ilk, ipsilateral, auxiliary, substratum, eschew, quiescence, slugabed, equine, antecedent), titled "Mental Quiescence and Equine Aspirations," format essay. Run through `publish.py --file --title --format essay`, which wrote it into `data/draws.json` (week 1, 3,321 characters) and stamped the title into `word_wall.json`'s draw history. Not yet pushed to GitHub/Vercel — that step is Tim's.
+
+Why:
+- This was the project's central blocker for ~4 months (0 pieces written despite working infrastructure) and the specific Open item this Morning Brief and prior ones kept surfacing.
+
+How to apply:
+- Once pushed, `weeks_completed` becomes 1 and the site shows the first live piece. Next Draw obligation resumes the Mon–Fri weekday cadence (Monday: draw Week 2's words).
 
 ### 2026-07-14 — Shift from weekly aspiration to weekday workflow
 
@@ -72,13 +83,13 @@ How to apply:
 - **draw.py:** functional — run it to pull 10 words
 - **publish.py:** functional — drops the piece into `draws.json`, git push, Vercel deploys
 - **Buttondown:** wired for newsletter
-- **Week 1 words already drawn:** first batch exists, but no piece has been published from it
-- **Pieces written:** 0
+- **Week 1 words already drawn, piece written:** "Mental Quiescence and Equine Aspirations" — written into `data/draws.json` 2026-07-26, not yet pushed live
+- **Pieces written:** 1 (pending push)
 - **New operating cadence:** Monday draw, Tuesday draft, Wednesday publish, Thursday log, Friday catch-up only if needed
 
 ---
 
 ## Open
-- Publish the first piece from the already-drawn Week 1 word batch
+- Push Week 1 live (`git add data/draws.json && git commit && git push` from the-draw/) — piece is written, just needs the push
 - Make the Morning Brief surface the exact Draw action required for the current weekday
 - After 4 shipped weeks, reassess whether "all 10 words must appear" is helping or quietly raising the activation energy too much
