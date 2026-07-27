@@ -2,6 +2,26 @@
   "project": "The Draw",
   "tagline": "1,290 words. 10 drawn at random. One piece of writing. Every week.",
   "total_words": 1290,
-  "weeks_completed": 0,
-  "draws": []
+  "weeks_completed": 1,
+  "draws": [
+    {
+      "week": 1,
+      "date": "2026-03-30",
+      "words": [
+        "jettison",
+        "ilk",
+        "ipsilateral",
+        "auxiliary",
+        "substratum",
+        "eschew",
+        "quiescence",
+        "slugabed",
+        "equine",
+        "antecedent"
+      ],
+      "piece_title": "Mental Quiescence and Equine Aspirations",
+      "piece_format": "essay",
+      "piece_body": "There was a young lady at my gym who sat at the front desk who will go unnamed. She was unbelievably gorgeous. Just stunning. I'd like to think we had quite a solid report. She wrote Revival by Zach Bryan in the Compendium. Fucking solid. I very much enjoyed chatting about whatever when I had the chance. At new year's time I asked her what she wanted out of 2026. She said she wanted to do some horseback riding with her niece this year. What a great answer. But at some point I started walking out past the front desk and she would be staring at her phone. I don't know if I ever intentionally made this decision or if I just let my core take the reigns but I would just walk by because I just didn't want to compete with a phone, not interested. And to be totally fair I could see someone being like \"just say 'see ya', anyone would respond positively.\" I do have a problem with that tho—and I'm not saying I'm \"right\" whatever the fuck that means, but this matters to me (and I assume those of my ilk). If you don't notice I'm there until I am walking out the door, you're not engaging with your environment, and I'm just not going to attempt to compete with a smartphone for your attention. So she went ICE-COLD. She eschewed any and all interactions with me even when we were making eye-contact across the counter as I would scan my barcode she would even begin talking to other coworkers as I walked up to not interact with me. It's an interesting prospect to consider what conclusions she came to, what assumptions she made given her antecedents. I never talked to her again, and pretty much everyone there is now gone (college maybe idk). But I would suspect that whatever conclusion she came to about what was going on between us, I doubt her habit of being being subsumed by her phone was registered. I supposed I may never know. It would have been nice to follow up on her equine aspirations.\n\nI've been living with capricious, but painful headaches for months now and recently my new doctor hypothesized that I am suffering from cervical spondylosis which unlike intuitive ipsilateral connections, apparently involves a contralateral connection where an injury I had over a year ago (that left my left arm completely immobile) from I assume a virus left some damage to a nerve going from my left deltoid across my shoulder to my neck (prolly somewhere around C1) is being impinged upon on the right side…I don't freaking get anatomy at all…It's funny how when you get sick, your life just jettisons all other auxiliary priorities and you're just sitting there thinking what do I need to do to reestablish the substratum of my life. As the wise Count Tyrone Rugen once said: \"If you haven't got your health…well you haven't got anything.\" These headaches have been just absolutely massacring my mornings. Tho I can't blame my lethargy on this alone. I've been struggling a lot recently with my sleep schedule. It's a wicked combo of abysmal doom-scrolling and my hopeless addiction to coffee that leaves me wide awake at 3am and then an absolute slugabed at 11am the next morning…fml. I do want to elaborate on the modern dynamics of doom-scrolling and how technology impacts our lives in subtle and obscene ways, but not now because it is 11:35 and I need to go to bed and finally achieve mental quiescence."
+    }
+  ]
 }
