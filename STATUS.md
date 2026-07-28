@@ -2,7 +2,7 @@
 attention: Active
 state: Live
 form: Website
-updated: 2026-07-26
+updated: 2026-07-27
 live_url: https://the-draw-black.vercel.app
 ---
 
@@ -10,11 +10,35 @@ live_url: https://the-draw-black.vercel.app
 
 **What this file is.** A running record of where The Draw stands — decisions made, what's shipped, what's blocked. Reference [INTENT.md](INTENT.md) for what the project is. For vision, structure, and the word pool mechanics, see `../\_docs/THE-DRAW-VISION.md`.
 
-Last updated: 2026-07-26
+Last updated: 2026-07-27
 
 ---
 
 ## Decisions
+
+### 2026-07-27 — Corrected: Week 1 was already pushed live, and favicon added
+
+What:
+- STATUS.md wrongly carried "push Week 1 live" as an Open item and described Week 1 as unpublished in the entry below. It was already live at `the-draw-black.vercel.app/week/1` (a same-day follow-up commit "Update Week 1 display date to publish date" is in the repo history). Corrected here. Also added `favicon.ico`, `icon.png` (512×512), and `apple-icon.png` to `app/` — a circle favicon in the site's cream paper color (`#f5f0e8`) with "DRAW" set in Special Elite, matching the site wordmark, rendered from the font's actual gstatic TTF for exact letterform match. Next.js app-router auto-detects these from `app/`, no code changes needed.
+
+Why:
+- Bad status data was about to send Tim to re-push something already shipped. Caught when he pointed at the live URL.
+
+How to apply:
+- Trust the live site over STATUS.md when they conflict; correct STATUS.md immediately after, as done here.
+- Favicon files are static assets in `app/` — deploy normally (`git add`, commit, push) to make them live.
+
+### 2026-07-27 — Week 2 words drawn
+
+What:
+- Ran `draw.py` and drew Week 2's 10 words: amphiboly, wanton, obsequious, postcoital, imprecation, machination, inhere, primacy, misogynism, surreptitious. `weeks_completed` is now 2, 1,270 words remain available.
+
+Why:
+- Monday is the designated draw day in the weekday cadence.
+
+How to apply:
+- Tuesday: draft using all 10 words, format follows the words.
+- Wednesday: revise and publish via `publish.py`.
 
 ### 2026-07-26 — First piece written and published: Week 1
 
@@ -83,13 +107,16 @@ How to apply:
 - **draw.py:** functional — run it to pull 10 words
 - **publish.py:** functional — drops the piece into `draws.json`, git push, Vercel deploys
 - **Buttondown:** wired for newsletter
-- **Week 1 words already drawn, piece written:** "Mental Quiescence and Equine Aspirations" — written into `data/draws.json` 2026-07-26, not yet pushed live
-- **Pieces written:** 1 (pending push)
+- **Week 1 published and live:** "Mental Quiescence and Equine Aspirations" — `the-draw-black.vercel.app/week/1`
+- **Pieces published:** 1
+- **Week 2 words drawn:** 2026-07-27 — amphiboly, wanton, obsequious, postcoital, imprecation, machination, inhere, primacy, misogynism, surreptitious. Draft/publish not yet done.
+- **Favicon:** added 2026-07-27 (`app/favicon.ico`, `app/icon.png`, `app/apple-icon.png`), not yet deployed
 - **New operating cadence:** Monday draw, Tuesday draft, Wednesday publish, Thursday log, Friday catch-up only if needed
 
 ---
 
 ## Open
-- Push Week 1 live (`git add data/draws.json && git commit && git push` from the-draw/) — piece is written, just needs the push
+- Push the new favicon files live (`git add app/favicon.ico app/icon.png app/apple-icon.png && git commit && git push` from the-draw/)
+- Write and publish Week 2 (words drawn 2026-07-27; draft Tuesday, publish Wednesday)
 - Make the Morning Brief surface the exact Draw action required for the current weekday
 - After 4 shipped weeks, reassess whether "all 10 words must appear" is helping or quietly raising the activation energy too much
