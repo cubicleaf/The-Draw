@@ -2,7 +2,7 @@ import './globals.css'
 
 export const metadata = {
   title: 'The Draw',
-  description: '1,290 words. 10 drawn at random. One piece of writing. Every week.',
+  description: "10 words drawn randomly at a time, original writing—no ai—that's a promise",
 }
 
 export default function RootLayout({ children }) {
