@@ -73,7 +73,6 @@ export default function SubscribeForm() {
           Something went wrong. Try again.
         </p>
       )}
-      <p className="subscribe-note">No spam. Just ten words and whatever they become.</p>
     </div>
   )
 }

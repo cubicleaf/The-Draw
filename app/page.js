@@ -46,15 +46,6 @@ export default function Home() {
             >
               {latest.piece_title}
             </a>
-            <p style={{
-              fontFamily: 'var(--font-mono)',
-              fontSize: '0.7rem',
-              color: 'var(--ink-faint)',
-              marginTop: '10px',
-              letterSpacing: '0.5px'
-            }}>
-              {latest.piece_format} · click to read
-            </p>
           </div>
         </>
       )}
@@ -78,10 +69,6 @@ export default function Home() {
       {/* Subscribe */}
       <SubscribeForm />
 
-      {/* Footer */}
-      <footer className="site-footer">
-        The Draw — a vocabulary project by Tim
-      </footer>
     </main>
   )
 }

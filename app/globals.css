@@ -176,26 +176,28 @@ a:hover {
   padding: 60px 0 40px;
 }
 
+.piece-meta-title-row {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
 .piece-week-label {
   font-family: var(--font-mono);
   font-size: 0.75rem;
   color: var(--ink-faint);
   text-transform: uppercase;
   letter-spacing: 2px;
-  margin-bottom: 16px;
+  white-space: nowrap;
 }
 
 .piece-title {
   font-family: var(--font-typewriter);
   font-size: 2.4rem;
   font-weight: 400;
-  margin-bottom: 12px;
-}
-
-.piece-date {
-  font-family: var(--font-mono);
-  font-size: 0.75rem;
-  color: var(--ink-faint);
+  margin: 0;
 }
 
 .piece-body {

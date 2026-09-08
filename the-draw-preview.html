@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>The Draw — Preview</title>
+<link href="https://fonts.googleapis.com/css2?family=Special+Elite&family=Courier+Prime:ital,wght@0,400;0,700;1,400&family=IBM+Plex+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --cream: #f5f0e8;
+  --ink: #1a1a1a;
+  --ink-light: #4a4a4a;
+  --ink-faint: #8a8a7a;
+  --red-dirty: #8b2500;
+  --font-typewriter: 'Special Elite', 'Courier Prime', monospace;
+  --font-body: 'Courier Prime', 'Courier New', monospace;
+  --font-mono: 'IBM Plex Mono', monospace;
+  --max-width: 800px;
+  --side-padding: 24px;
+}
+
+html { font-size: 18px; -webkit-font-smoothing: antialiased; }
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--cream);
+  color: var(--ink);
+  line-height: 1.7;
+  min-height: 100vh;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+}
+
+a { color: var(--ink); text-decoration: none; }
+a:hover { color: var(--red-dirty); }
+
+.container { max-width: var(--max-width); margin: 0 auto; padding: 0 var(--side-padding); }
+
+.site-header { padding: 60px 0 20px; text-align: center; }
+.site-title {
+  font-family: var(--font-typewriter);
+  font-size: 3rem; font-weight: 400;
+  letter-spacing: 2px; text-transform: uppercase;
+}
+.site-tagline {
+  font-family: var(--font-mono);
+  font-size: 0.75rem; color: var(--ink-faint);
+  margin-top: 12px; letter-spacing: 0.5px;
+}
+
+.intro {
+  text-align: center; max-width: 600px;
+  margin: 0 auto 50px; font-size: 0.95rem;
+  color: var(--ink-light); line-height: 1.8;
+}
+
+.word-scatter {
+  position: relative; width: 100%;
+  min-height: 340px; margin: 30px 0 50px; padding: 20px 0;
+}
+.word-scatter-item {
+  position: absolute; font-family: var(--font-typewriter);
+  cursor: default; transition: color 0.2s ease, transform 0.2s ease;
+  white-space: nowrap;
+}
+.word-scatter-item:hover {
+  color: var(--red-dirty); transform: scale(1.08);
+}
+
+.section-header {
+  font-family: var(--font-typewriter);
+  font-size: 1rem; text-transform: uppercase;
+  letter-spacing: 3px; color: var(--ink-faint);
+  border-bottom: 1px solid rgba(0,0,0,0.1);
+  padding-bottom: 12px; margin: 60px 0 30px;
+}
+
+.current-title {
+  text-align: center; margin-bottom: 20px;
+}
+.current-title a {
+  font-family: var(--font-typewriter);
+  font-size: 1.6rem;
+  border-bottom: 1px solid rgba(0,0,0,0.15);
+  padding-bottom: 4px;
+}
+.current-title p {
+  font-family: var(--font-mono);
+  font-size: 0.7rem; color: var(--ink-faint);
+  margin-top: 10px; letter-spacing: 0.5px;
+}
+
+.week-card {
+  display: block;
+  border-bottom: 1px solid rgba(0,0,0,0.08);
+  padding: 28px 0; transition: background-color 0.2s ease;
+}
+.week-card:hover { background-color: rgba(0,0,0,0.02); }
+.week-card-header {
+  display: flex; justify-content: space-between;
+  align-items: baseline; margin-bottom: 10px;
+}
+.week-card-number {
+  font-family: var(--font-typewriter);
+  font-size: 0.85rem; color: var(--ink-faint);
+  text-transform: uppercase; letter-spacing: 1px;
+}
+.week-card-date {
+  font-family: var(--font-mono);
+  font-size: 0.7rem; color: var(--ink-faint);
+}
+.week-card-title {
+  font-family: var(--font-typewriter);
+  font-size: 1.4rem; margin-bottom: 10px;
+}
+.week-card-words { display: flex; flex-wrap: wrap; gap: 8px; }
+.word-tag {
+  font-family: var(--font-mono);
+  font-size: 0.65rem; padding: 3px 10px;
+  border: 1px solid rgba(0,0,0,0.15);
+  color: var(--ink-light); letter-spacing: 0.3px;
+}
+
+.subscribe-section {
+  text-align: center; padding: 60px 0 80px;
+  border-top: 1px solid rgba(0,0,0,0.08); margin-top: 60px;
+}
+.subscribe-prompt {
+  font-family: var(--font-typewriter);
+  font-size: 1.1rem; margin-bottom: 20px;
+}
+.subscribe-form {
+  display: flex; justify-content: center;
+  gap: 0; max-width: 440px; margin: 0 auto;
+}
+.subscribe-input {
+  font-family: var(--font-mono); font-size: 0.8rem;
+  padding: 12px 16px; border: 1px solid rgba(0,0,0,0.25);
+  background: transparent; color: var(--ink); flex: 1; outline: none;
+}
+.subscribe-input::placeholder { color: var(--ink-faint); }
+.subscribe-input:focus { border-color: var(--ink); }
+.subscribe-button {
+  font-family: var(--font-typewriter); font-size: 0.8rem;
+  padding: 12px 24px; background: var(--ink); color: var(--cream);
+  border: 1px solid var(--ink); cursor: pointer;
+  text-transform: uppercase; letter-spacing: 1px;
+  transition: background-color 0.2s ease;
+}
+.subscribe-button:hover { background: var(--red-dirty); border-color: var(--red-dirty); }
+.subscribe-note {
+  font-family: var(--font-mono); font-size: 0.65rem;
+  color: var(--ink-faint); margin-top: 12px;
+}
+
+.site-footer {
+  text-align: center; padding: 40px 0;
+  font-family: var(--font-mono); font-size: 0.65rem; color: var(--ink-faint);
+}
+
+.drawn-word { color: var(--red-dirty); font-weight: 700; }
+
+/* Piece page styles */
+.piece-header { text-align: center; padding: 60px 0 40px; }
+.piece-week-label {
+  font-family: var(--font-mono); font-size: 0.75rem;
+  color: var(--ink-faint); text-transform: uppercase;
+  letter-spacing: 2px; margin-bottom: 16px;
+}
+.piece-title {
+  font-family: var(--font-typewriter);
+  font-size: 2.4rem; font-weight: 400; margin-bottom: 12px;
+}
+.piece-date {
+  font-family: var(--font-mono); font-size: 0.75rem; color: var(--ink-faint);
+}
+.piece-body {
+  max-width: 650px; margin: 0 auto; padding: 0 24px 80px;
+  font-size: 1rem; line-height: 1.85;
+}
+.piece-body p { margin-bottom: 1.6em; }
+
+.back-link {
+  display: inline-block; font-family: var(--font-mono);
+  font-size: 0.75rem; color: var(--ink-faint);
+  padding: 20px 0; letter-spacing: 0.5px;
+}
+.back-link:hover { color: var(--red-dirty); }
+
+/* Page navigation */
+.page-nav { text-align: center; margin: 40px 0; }
+.page-nav button {
+  font-family: var(--font-typewriter); font-size: 0.85rem;
+  padding: 10px 24px; margin: 0 8px;
+  background: transparent; border: 1px solid rgba(0,0,0,0.2);
+  color: var(--ink); cursor: pointer;
+  text-transform: uppercase; letter-spacing: 1px;
+}
+.page-nav button:hover { background: var(--ink); color: var(--cream); }
+.page-nav button.active { background: var(--ink); color: var(--cream); }
+
+@media (max-width: 600px) {
+  html { font-size: 16px; }
+  .site-title { font-size: 2.2rem; }
+  .piece-title { font-size: 1.8rem; }
+  .word-scatter { min-height: 300px; }
+  .subscribe-form { flex-direction: column; }
+  .subscribe-button { width: 100%; }
+}
+</style>
+</head>
+<body>
+
+<main class="container" id="app">
+  <!-- Pages are swapped in/out by JS below -->
+</main>
+
+<script>
+// --- Data ---
+const drawData = {
+  tagline: "10 words drawn randomly at a time, original writing—no ai—that's a promise",
+  total_words: 1290,
+  draws: [
+    {
+      week: 1, date: "2026-03-28",
+      words: ["phantasmagoria","caustic","sinecure","gossamer","bellicosity","etiolate","surfeit","parochial","welter","rococo"],
+      piece_title: "The Gilded Rot",
+      piece_format: "essay",
+      piece_body: `There is a <span class="drawn-word">surfeit</span> of <span class="drawn-word">phantasmagoria</span> in the way we talk about progress — a <span class="drawn-word">rococo</span> ornamentation of language designed to obscure the <span class="drawn-word">caustic</span> truth underneath. We live in a <span class="drawn-word">welter</span> of competing narratives, each more <span class="drawn-word">parochial</span> than the last, each dressed in <span class="drawn-word">gossamer</span> rhetoric that <span class="drawn-word">etiolates</span> under the slightest scrutiny.
+
+The <span class="drawn-word">bellicosity</span> of public discourse isn't new, of course. What's new is the <span class="drawn-word">sinecure</span> it offers. You can build an entire career on outrage now — a comfortable, tenured position in the economy of anger, requiring nothing but volume and consistency. The words don't need to mean anything. They just need to land.
+
+I started this project because I wanted the words to mean something again. Ten words, drawn at random, forced into proximity with each other and with whatever I happen to be thinking about that week. It's a constraint, and constraints are where honesty lives. You can't bullshit your way through 'etiolate' — you either know what it means or you don't. You either find its place in the sentence or you fail publicly.
+
+That's the point. The public failure. The willingness to reach for a word like 'phantasmagoria' and risk sounding like a pretentious ass, because the alternative is using the same 500 words everyone else uses and saying nothing at all.`
+    },
+    {
+      week: 2, date: "2026-04-04",
+      words: ["shibboleth","conflagration","dulcet","peripatetic","mordant","abnegate","insouciant","escarpment","lucre","vestige"],
+      piece_title: "Walking Money",
+      piece_format: "essay",
+      piece_body: `The <span class="drawn-word">peripatetic</span> life sounds <span class="drawn-word">dulcet</span> in the brochure — all cobblestones and cafe tables and the <span class="drawn-word">insouciant</span> tilt of a well-traveled hat. The reality is more <span class="drawn-word">mordant</span>. You walk until your feet inform you, in no uncertain terms, that they have <span class="drawn-word">abnegated</span> their contract with the rest of your body.
+
+I've been thinking about <span class="drawn-word">shibboleths</span> this week. The word itself is a shibboleth — if you know it, you're in a certain club. If you don't, the door stays closed. Every field has them. Finance has 'alpha' and 'basis points.' Academia has 'praxis' and 'liminal.' The words aren't just vocabulary; they're border checkpoints. Proof of membership. The <span class="drawn-word">lucre</span> isn't always money — sometimes it's access.
+
+There's a <span class="drawn-word">conflagration</span> happening in the way knowledge moves now. The old <span class="drawn-word">escarpments</span> between expert and amateur are eroding. A kid on YouTube can explain derivatives better than my college professor did, and the only <span class="drawn-word">vestige</span> of the old gatekeeping is the vocabulary itself — the shibboleths that still make people feel like outsiders.
+
+That's partly why I collect words. Not to gatekeep. To dismantle the gate.`
+    }
+  ]
+};
+
+// --- Word Scatter ---
+function hashWord(word, idx) {
+  let hash = 0;
+  const str = word + idx;
+  for (let i = 0; i < str.length; i++) {
+    hash = ((hash << 5) - hash) + str.charCodeAt(i);
+    hash |= 0;
+  }
+  return Math.abs(hash);
+}
+
+function seededRandom(seed) {
+  const x = Math.sin(seed) * 10000;
+  return x - Math.floor(x);
+}
+
+// Check if two rectangles overlap
+function boxesOverlap(a, b) {
+  return !(a.right < b.left || a.left > b.right || a.bottom < b.top || a.top > b.bottom);
+}
+
+function renderScatter(words, containerId) {
+  const sizePx = [28, 22, 32, 18, 26, 30, 20, 28, 24, 22];
+  const weights = ['bold','normal','bold','normal','normal','bold','normal','normal','bold','normal'];
+
+  // We need to measure words first, so we return a placeholder
+  // and fill it in after the DOM renders
+  const id = containerId || 'scatter-' + Math.random().toString(36).slice(2);
+
+  // Schedule the scatter placement after render
+  setTimeout(() => {
+    const container = document.getElementById(id);
+    if (!container) return;
+
+    const containerWidth = container.offsetWidth;
+    const containerHeight = container.offsetHeight || 360;
+    const PADDING = 18;
+    const placed = [];
+
+    // Measure each word
+    const measurements = words.map((word, i) => {
+      const measurer = document.createElement('span');
+      measurer.style.cssText = `
+        position: absolute; visibility: hidden; white-space: nowrap;
+        font-family: 'Special Elite', 'Courier Prime', monospace;
+        font-size: ${sizePx[i]}px; font-weight: ${weights[i]};
+      `;
+      measurer.textContent = word;
+      document.body.appendChild(measurer);
+      const w = measurer.offsetWidth;
+      const h = measurer.offsetHeight;
+      document.body.removeChild(measurer);
+      return { word, w, h, fontSize: sizePx[i], fontWeight: weights[i] };
+    });
+
+    // Place each word with collision detection
+    const results = measurements.map((item, i) => {
+      const hash = hashWord(item.word, i);
+      let bestPos = null;
+
+      for (let attempt = 0; attempt < 150; attempt++) {
+        const r1 = seededRandom(hash + attempt * 7);
+        const r2 = seededRandom(hash + attempt * 13 + 1);
+        const r3 = seededRandom(hash + attempt * 3 + 2);
+
+        const x = r1 * (containerWidth - item.w - 20) + 10;
+        const y = r2 * (containerHeight - item.h - 20) + 10;
+        const rotation = (r3 - 0.5) * 10;
+
+        const candidate = {
+          left: x - PADDING,
+          top: y - PADDING,
+          right: x + item.w + PADDING,
+          bottom: y + item.h + PADDING,
+        };
+
+        if (!placed.some(box => boxesOverlap(candidate, box))) {
+          bestPos = { x, y, rotation };
+          placed.push(candidate);
+          break;
+        }
+      }
+
+      if (!bestPos) {
+        const r1 = seededRandom(hash);
+        const r2 = seededRandom(hash + 1);
+        bestPos = {
+          x: r1 * (containerWidth - item.w - 20) + 10,
+          y: r2 * (containerHeight - item.h - 20) + 10,
+          rotation: 0,
+        };
+      }
+
+      return { ...item, ...bestPos };
+    });
+
+    // Render into the container
+    container.innerHTML = results.map((item, i) =>
+      `<span class="word-scatter-item" style="left:${item.x}px;top:${item.y}px;font-size:${item.fontSize}px;font-weight:${item.fontWeight};transform:rotate(${item.rotation}deg)">${item.word}</span>`
+    ).join('');
+  }, 10);
+
+  return `<div class="word-scatter" id="${id}" style="min-height:360px"></div>`;
+}
+
+// --- Pages ---
+function renderHome() {
+  const draws = [...drawData.draws].sort((a, b) => b.week - a.week);
+  const latest = draws[0];
+  const archive = draws.slice(1);
+
+  let archiveHTML = '';
+  if (archive.length > 0) {
+    archiveHTML = `<div class="section-header">Archive</div>` +
+      archive.map(d => `
+        <a class="week-card" href="#" onclick="showWeek(${d.week}); return false;">
+          <div class="week-card-header">
+            <span class="week-card-number">Week ${d.week}</span>
+            <span class="week-card-date">${d.date}</span>
+          </div>
+          <h3 class="week-card-title">${d.piece_title}</h3>
+          <div class="week-card-words">
+            ${d.words.map(w => `<span class="word-tag">${w}</span>`).join('')}
+          </div>
+        </a>
+      `).join('');
+  }
+
+  return `
+    <header class="site-header">
+      <h1 class="site-title">The Draw</h1>
+      <p class="site-tagline">${drawData.tagline}</p>
+    </header>
+
+    <div class="section-header">Week ${latest.week} — ${latest.date}</div>
+    ${renderScatter(latest.words, 'home-scatter')}
+    <div class="current-title">
+      <a href="#" onclick="showWeek(${latest.week}); return false;">${latest.piece_title}</a>
+      <p>${latest.piece_format} · click to read</p>
+    </div>
+
+    ${archiveHTML}
+
+    <div class="subscribe-section">
+      <p class="subscribe-prompt">Get the draw in your inbox.</p>
+      <form class="subscribe-form" onsubmit="return false;">
+        <input class="subscribe-input" type="email" placeholder="your@email.com" required />
+        <button class="subscribe-button" type="submit">Subscribe</button>
+      </form>
+      <p class="subscribe-note">No spam. Just ten words and whatever they become.</p>
+    </div>
+
+    <footer class="site-footer">The Draw — a vocabulary project by Tim</footer>
+  `;
+}
+
+function renderWeek(weekNum) {
+  const draw = drawData.draws.find(d => d.week === weekNum);
+  if (!draw) return '<p>Week not found.</p>';
+
+  const paragraphs = draw.piece_body.split('\n\n').map(p => `<p>${p}</p>`).join('');
+
+  return `
+    <a href="#" class="back-link" onclick="showHome(); return false;">← Back to The Draw</a>
+
+    <div class="piece-header">
+      <p class="piece-week-label">Week ${draw.week}</p>
+      <h1 class="piece-title">${draw.piece_title}</h1>
+      <p class="piece-date">${draw.date}</p>
+    </div>
+
+    ${renderScatter(draw.words, 'week-scatter-' + draw.week)}
+
+    <article class="piece-body">
+      ${paragraphs}
+    </article>
+
+    <div class="subscribe-section">
+      <p class="subscribe-prompt">Get the draw in your inbox.</p>
+      <form class="subscribe-form" onsubmit="return false;">
+        <input class="subscribe-input" type="email" placeholder="your@email.com" required />
+        <button class="subscribe-button" type="submit">Subscribe</button>
+      </form>
+      <p class="subscribe-note">No spam. Just ten words and whatever they become.</p>
+    </div>
+
+    <footer class="site-footer">The Draw — a vocabulary project by Tim</footer>
+  `;
+}
+
+// --- Navigation ---
+function showHome() {
+  document.getElementById('app').innerHTML = renderHome();
+  window.scrollTo(0, 0);
+}
+
+function showWeek(num) {
+  document.getElementById('app').innerHTML = renderWeek(num);
+  window.scrollTo(0, 0);
+}
+
+// --- Init ---
+showHome();
+</script>
+</body>
+</html>

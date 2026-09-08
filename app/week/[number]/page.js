@@ -65,9 +65,10 @@ export default async function WeekPage({ params }) {
       <Link href="/" className="back-link">← Back to The Draw</Link>
 
       <div className="piece-header">
-        <p className="piece-week-label">Week {draw.week}</p>
-        <h1 className="piece-title">{draw.piece_title}</h1>
-        <p className="piece-date">{draw.date}</p>
+        <div className="piece-meta-title-row">
+          <span className="piece-week-label">Week {draw.week} — {draw.date}</span>
+          <h1 className="piece-title">{draw.piece_title}</h1>
+        </div>
       </div>
 
       <WordScatter words={draw.words} />
@@ -79,10 +80,6 @@ export default async function WeekPage({ params }) {
       </article>
 
       <SubscribeForm />
-
-      <footer className="site-footer">
-        The Draw — a vocabulary project by Tim
-      </footer>
     </main>
   )
 }
